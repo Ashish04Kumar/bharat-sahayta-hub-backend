@@ -37,3 +37,21 @@ export const registerHelperTranslation = (req, res) => {
     });
   });
 };
+
+export const registerNGOTranslation = (req, res) => {
+  const lang = req.headers["Accept-Language"] || "en";
+  const filePath = path.join(process.cwd(), "locales", "signup", "register-ngo-txt.json");
+
+  fs.readFile(filePath, "utf-8", (err, data) => {
+    if (err) {
+      return res
+        .status(500)
+        .json({ success: false, message: MESSAGES.FILE_READ_ERROR[lang] });
+    }
+
+    res.json({
+      success: true,
+      data: JSON.parse(data),
+    });
+  });
+};
