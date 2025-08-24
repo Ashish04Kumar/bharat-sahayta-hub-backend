@@ -31,6 +31,7 @@
     "formFields": {
       "commonFieldName": "helpCategories",
       "required": true,
+      "type": "checkbox",
       "fields": [
         {
           "name": "healthcare",
@@ -120,15 +121,15 @@
           },
           "type": "checkbox"
         }
-      ]
-    },
-    "errorMessage": {
-      "label": {
-        "en": "aleast one category is required",
-        "hi": "कम से कम एक श्रेणी आवश्यक है",
-        "pa": "ਘੱਟੋ-ਘੱਟ ਇੱਕ ਸ਼੍ਰੇਣੀ ਲਾਜ਼ਮੀ ਹੈ",
-        "ta": "குறைந்தது ஒரு பிரிவு தேவை",
-        "bn": "অন্তত একটি বিভাগ প্রয়োজন"
+      ],
+      "errorMessage": {
+        "label": {
+          "en": "At least one category is required",
+          "hi": "कम से कम एक श्रेणी आवश्यक है",
+          "pa": "ਘੱਟੋ-ਘੱਟ ਇੱਕ ਸ਼੍ਰੇਣੀ ਲਾਜ਼ਮੀ ਹੈ",
+          "ta": "குறைந்தது ஒரு பிரிவு தேவை",
+          "bn": "অন্তত একটি বিভাগ প্রয়োজন"
+        }
       }
     },
     "commonTexts": {
@@ -216,7 +217,16 @@
             "bn": "শুধুমাত্র জরুরি অবস্থায়"
           }
         }
-      ]
+      ],
+      "errorMessage": {
+        "label": {
+          "en": "Availability selection is required",
+          "hi": "उपलब्धता चुनना आवश्यक है",
+          "pa": "ਉਪਲਬਧਤਾ ਚੁਣਨੀ ਲਾਜ਼ਮੀ ਹੈ",
+          "ta": "கிடைக்கும் நேரத்தைத் தேர்ந்தெடுக்க வேண்டும்",
+          "bn": "উপলব্ধতা নির্বাচন করা আবশ্যক"
+        }
+      }
     }
   },
   "locationRange": {
@@ -316,7 +326,16 @@
             "bn": "ভারতের যেকোনো জায়গায়"
           }
         }
-      ]
+      ],
+      "errorMessage": {
+        "label": {
+          "en": "Location range selection is required",
+          "hi": "स्थान सीमा चुनना आवश्यक है",
+          "pa": "ਟਿਕਾਣਾ ਸੀਮਾ ਚੁਣਨਾ ਲਾਜ਼ਮੀ ਹੈ",
+          "ta": "இட வரம்பைத் தேர்ந்தெடுக்க வேண்டும்",
+          "bn": "অবস্থানের সীমা নির্বাচন করা আবশ্যক"
+        }
+      }
     }
   },
   "typeOfHelp": {
@@ -337,6 +356,7 @@
     "formFields": {
       "commonFieldName": "typeOfHelp",
       "required": true,
+      "type": "checkbox",
       "fields": [
         {
           "name": "physicalAssistance",
@@ -371,15 +391,15 @@
           },
           "type": "checkbox"
         }
-      ]
-    },
-    "errorMessage": {
-      "label": {
-        "en": "aleast one category is required",
-        "hi": "कम से कम एक श्रेणी आवश्यक है",
-        "pa": "ਘੱਟੋ-ਘੱਟ ਇੱਕ ਸ਼੍ਰੇਣੀ ਲਾਜ਼ਮੀ ਹੈ",
-        "ta": "குறைந்தது ஒரு பிரிவு தேவை",
-        "bn": "অন্তত একটি বিভাগ প্রয়োজন"
+      ],
+      "errorMessage": {
+        "label": {
+          "en": "At least one type of help is required",
+          "hi": "कम से कम एक प्रकार की मदद आवश्यक है",
+          "pa": "ਘੱਟੋ-ਘੱਟ ਇੱਕ ਕਿਸਮ ਦੀ ਮਦਦ ਲਾਜ਼ਮੀ ਹੈ",
+          "ta": "குறைந்தது ஒரு உதவி வகை தேவை",
+          "bn": "অন্তত একটি সহায়তার ধরন প্রয়োজন"
+        }
       }
     }
   }
