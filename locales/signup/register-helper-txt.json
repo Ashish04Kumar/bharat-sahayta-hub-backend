@@ -109,8 +109,36 @@
         "bn": "অনুগ্রহ করে একটি বৈধ ফোন নম্বর লিখুন"
       }
     },
-    "state": {
+    "password": {
       "sequence": 5,
+      "name": "password",
+      "type": "password",
+      "required": true,
+      "label": {
+        "hi": "पासवर्ड",
+        "en": "Password",
+        "pa": "ਪਾਸਵਰਡ",
+        "ta": "கடவுச்சொல்",
+        "bn": "পাসওয়ার্ড"
+      },
+      "placeholder": {
+        "hi": "अपना पासवर्ड दर्ज करें",
+        "en": "Enter your password",
+        "pa": "ਆਪਣਾ ਪਾਸਵਰਡ ਦਰਜ ਕਰੋ",
+        "ta": "உங்கள் கடவுச்சொல்லை உள்ளிடவும்",
+        "bn": "আপনার পাসওয়ার্ড লিখুন"
+      },
+      "errorMessage": {
+        "hi": "कृपया एक वैध पासवर्ड दर्ज करें",
+        "en": "Please enter a valid password",
+        "pa": "ਕਿਰਪਾ ਕਰਕੇ ਇੱਕ ਵੈਧ ਪਾਸਵਰਡ ਦਰਜ ਕਰੋ",
+        "ta": "தயவுசெய்து செல்லுபடியான கடவுச்சொல்லை உள்ளிடுக",
+        "bn": "অনুগ্রহ করে একটি বৈধ পাসওয়ার্ড লিখুন"
+      }
+    },
+
+    "state": {
+      "sequence": 6,
       "name": "state",
       "type": "dropdown",
       "required": true,
@@ -137,7 +165,7 @@
       }
     },
     "city": {
-      "sequence": 6,
+      "sequence": 7,
       "name": "city",
       "type": "text",
       "required": true,
@@ -164,7 +192,7 @@
       }
     },
     "bio": {
-      "sequence": 7,
+      "sequence": 8,
       "name": "bio",
       "type": "textarea",
       "required": false,

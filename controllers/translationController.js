@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { MESSAGES } from "../constants/message.js";
-MESSAGES
+MESSAGES;
 export const registerUserStep1Translation = (req, res) => {
   const lang = req.headers["Accept-Language"] || "en";
   const filePath = path.join(process.cwd(), "locales", "signup", "step1.json");
@@ -22,7 +22,12 @@ export const registerUserStep1Translation = (req, res) => {
 
 export const registerHelperTranslation = (req, res) => {
   const lang = req.headers["Accept-Language"] || "en";
-  const filePath = path.join(process.cwd(), "locales", "signup", "register-helper-txt.json");
+  const filePath = path.join(
+    process.cwd(),
+    "locales",
+    "signup",
+    "register-helper-txt.json"
+  );
 
   fs.readFile(filePath, "utf-8", (err, data) => {
     if (err) {
@@ -40,7 +45,12 @@ export const registerHelperTranslation = (req, res) => {
 
 export const registerNGOTranslation = (req, res) => {
   const lang = req.headers["Accept-Language"] || "en";
-  const filePath = path.join(process.cwd(), "locales", "signup", "register-ngo-txt.json");
+  const filePath = path.join(
+    process.cwd(),
+    "locales",
+    "signup",
+    "register-ngo-txt.json"
+  );
 
   fs.readFile(filePath, "utf-8", (err, data) => {
     if (err) {
@@ -58,7 +68,12 @@ export const registerNGOTranslation = (req, res) => {
 
 export const helperPrefrencesTranslation = (req, res) => {
   const lang = req.headers["Accept-Language"] || "en";
-  const filePath = path.join(process.cwd(), "locales", "signup", "helper-prefrences-txt.json");
+  const filePath = path.join(
+    process.cwd(),
+    "locales",
+    "signup",
+    "helper-prefrences-txt.json"
+  );
 
   fs.readFile(filePath, "utf-8", (err, data) => {
     if (err) {
@@ -75,9 +90,13 @@ export const helperPrefrencesTranslation = (req, res) => {
 };
 
 export const loginScreenTranslation = (req, res) => {
-  console.log("8i67u6y5t",req);
   const lang = req.headers["Accept-Language"] || "en";
-  const filePath = path.join(process.cwd(), "locales", "login", "login-translation.json");
+  const filePath = path.join(
+    process.cwd(),
+    "locales",
+    "login",
+    "login-translation.json"
+  );
 
   fs.readFile(filePath, "utf-8", (err, data) => {
     if (err) {
@@ -92,3 +111,29 @@ export const loginScreenTranslation = (req, res) => {
     });
   });
 };
+
+
+export const dashboardScreenTranslation = (req, res) => {
+  const lang = req.headers["Accept-Language"] || "en";
+  const filePath = path.join(
+    process.cwd(),
+    "locales",
+    "dashboard",
+    "dashboard-translation.json"
+  );
+
+  fs.readFile(filePath, "utf-8", (err, data) => {
+    if (err) {
+      return res
+        .status(500)
+        .json({ success: false, message: MESSAGES.FILE_READ_ERROR[lang] });
+    }
+
+    res.json({
+      success: true,
+      data: JSON.parse(data),
+    });
+  });
+};
+
+
