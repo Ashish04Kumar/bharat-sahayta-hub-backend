@@ -23,7 +23,8 @@ const allowedOrigins = [
   "https://bharat-sahayta-hub.online",
   "http://localhost:3000",
 ];
-app.use(
+app.options(
+  "*",
   cors({
     origin: (origin, callback) => {
       if (!origin) return callback(null, true);
