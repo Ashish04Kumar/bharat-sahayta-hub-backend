@@ -17,12 +17,21 @@ dotenv.config();
 connectDB();
 
 const app = express();
-// Parse normal JSON bhi agar bhejo
+
+const allowedOrigins = [
+  "https://bharat-sahayta-hub-frontend.vercel.app",
+  "https://bharat-sahayta-hub.online",
+  "http://localhost:3000",
+];
 app.use(
   cors({
-    origin: (origin, callback) => callback(null, true),
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin)) return callback(null, true);
+      callback(new Error("CORS not allowed"));
+    },
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
 
@@ -42,11 +51,7 @@ app.post(
 app.post("/api/v1/login-user", loginUser);
 app.post("/api/v1/logout-user", logoutUser);
 
-const PORT = process.env.PORT;
-if (!PORT) {
-  throw new Error("PORT is not defined in environment variables");
-}
-
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, "0.0.0.0", () =>
   console.log(`Server running on 0.0.0.0:${PORT}`)
 );
