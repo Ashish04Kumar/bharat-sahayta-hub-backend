@@ -47,6 +47,6 @@ if (!PORT) {
   throw new Error("PORT is not defined in environment variables");
 }
 
-app.listen(PORT, "0.0.0.0", () =>
+app.listen(3000, "0.0.0.0", () =>
   console.log(`Server running on 0.0.0.0:${PORT}`)
 );
