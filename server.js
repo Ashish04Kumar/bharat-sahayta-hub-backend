@@ -20,7 +20,7 @@ const app = express();
 
 const allowedOrigins = [
   "https://bharat-sahayta-hub-frontend.vercel.app",
-  "https://bharat-sahayta-hub.online",
+  "https://www.bharat-sahayta-hub.online",
   "http://localhost:3000",
 ];
 app.options(
