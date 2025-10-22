@@ -118,6 +118,8 @@ export const registerUserController = async (req, res) => {
 export const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
+    console.log("Login attempt:", email, password);
+
     const existingUser = await FormModel.findOne({ email });
     if (!existingUser) {
       return res.status(400).json({
@@ -125,7 +127,7 @@ export const loginUser = async (req, res) => {
       });
     }
 
-    if (!password) {
+    if (existingUser.password !== password) {
       return res.status(400).json({
         message: messages.LOGIN_FAILED,
       });
@@ -134,15 +136,42 @@ export const loginUser = async (req, res) => {
     const userObj = existingUser.toObject();
     delete userObj.password;
 
-    const token = jwt.sign(userObj, process.env.SECRET_KEY);
-    res.cookie("access_token", token, {});
+    const token = jwt.sign(userObj, process.env.SECRET_KEY, {
+      expiresIn: "1d",
+    });
+
+    res.cookie("access_token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+    });
 
     res.status(200).json({
       message: messages.LOGIN_SUCCESS,
       user: userObj,
     });
   } catch (err) {
-    console.log("error occurred while login", err);
+    console.error("Error occurred while login:", err);
+    res.status(500).json({
+      message: messages.SERVER_ERROR,
+      error: err.message,
+    });
+  }
+};
+
+export const logoutUser = async (req, res) => {
+  try {
+    res.clearCookie("access_token", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+      path: "/",
+    });
+
+    res.status(200).json({
+      message: messages.LOGOUT_SUCCESS,
+    });
+  } catch (err) {
+    console.error("Error during logout:", err);
     res.status(500).json({
       message: messages.SERVER_ERROR,
       error: err.message,

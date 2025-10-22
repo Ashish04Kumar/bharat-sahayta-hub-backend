@@ -5,7 +5,7 @@ import cors from "cors";
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import translationRoutes from "./routes/translationRoutes.js";
-import { loginUser, registerUserController } from "./controllers/resgistrationUserController.js";
+import { loginUser, logoutUser, registerUserController } from "./controllers/resgistrationUserController.js";
 import bodyParser from "body-parser";
 import upload from "./utils/multer.js";
 
@@ -32,6 +32,7 @@ app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1", translationRoutes);
 app.post("/api/v1/register-user", upload.single("profilePicture"), registerUserController);
 app.post("/api/v1/login-user", loginUser);
+app.post("/api/v1/logout-user", logoutUser);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
