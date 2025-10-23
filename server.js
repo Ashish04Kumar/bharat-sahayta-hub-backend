@@ -18,19 +18,27 @@ connectDB();
 
 const app = express();
 
-const allowedOrigins = [
-  "https://bharat-sahayta-hub-frontend.vercel.app",
-  "https://www.bharat-sahayta-hub.online",
-  "http://localhost:3000",
-];
+// const allowedOrigins = [
+//   "https://bharat-sahayta-hub-frontend.vercel.app",
+//   "https://www.bharat-sahayta-hub.online",
+//   "http://localhost:3000",
+// ];
+
+// app.use(
+//   cors({
+//     origin: (origin, callback) => {
+//       if (!origin) return callback(null, true);
+//       if (allowedOrigins.includes(origin)) return callback(null, true);
+//       callback(new Error("CORS not allowed"));
+//     },
+//     credentials: true,
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//   })
+// );
 
 app.use(
   cors({
-    origin: (origin, callback) => {
-      if (!origin) return callback(null, true);
-      if (allowedOrigins.includes(origin)) return callback(null, true);
-      callback(new Error("CORS not allowed"));
-    },
+    origin: "*",
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
